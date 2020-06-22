@@ -1,13 +1,31 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, browserHistory, indexRouter, Link } from 'react-router-dom';
+import Navigation from './Navigation'
+import WelcomePage from './WelcomeCard'
+import Login from './LoginForm'
+import './Homepage.css'
+
+
+
 
 const HomePage = () => {
-    return (
-        <div class="container-fluid">
-<nav class="navbar navbar-light bg-light">
-  <span class="navbar-brand mb-0 h1">Spotify-song-suggester</span>
-</nav>
-        </div>
+
+
+  return (
+    
+    <div class="HomeDiv">
+    <Navigation />
+    <div class="cards">
+    
+    <Router>
+
+    <Route exact path="/" component={WelcomePage}/>
+
+         <Route exact path="/Login" component={Login} />
+        </Router>
+    </div>
+    
+    </div>
     )
 }
 
