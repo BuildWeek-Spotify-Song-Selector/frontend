@@ -1,0 +1,14 @@
+.login {
+    width: 500px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+    font-size: 1rem;
+    background-color: #474B4F;
+    color: #426118;
+  }
+  
+  
