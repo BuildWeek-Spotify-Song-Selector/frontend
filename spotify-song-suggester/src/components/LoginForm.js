@@ -4,40 +4,41 @@ import * as Yup from "yup";
 import axios from "axios";
 
 
-import './Login.css'
+import './LoginForm.css'
 const Login = () => {
 
-  const HandleSub = (val) => {
+  const onSubmit = (val) => {
     alert(JSON.stringify(val));
-    axios.get("", val).post(resp => console.log(resp)).catch(err => console.log(err))
+    axios.post( "https://spotifysongsbw.herokuapp.com/api/user/login" ,val).then(resp => console.log(resp))
+    .catch(err => console.log(err))
     
 };
 
   const initialValues = {
-    username: "",
+    email: "",
     password: ""
 };
 
 
   const SignupSchema =
     Yup.object().shape({
-    username: Yup.string().required("add a username"),
+    email: Yup.string().required("add a email"),
     password: Yup.string().required("add a password")
   });
 
   return (
     <div className="login">
       <h1>Log In</h1>
-      <Formik {...{initialValues, HandleSub}} 
+      <Formik {...{initialValues, onSubmit}} 
       validationSchema={SignupSchema}>
         {() => (
-          <Form>
-            <div>
-              <label htmlFor="username">Username</label>
-              <Field type="text" id="username" name="username" />
+          <Form className="form">
+            <div className="input-box">
+              <label htmlFor="email">email</label>
+              <Field type="text" id="email" name="email" />
             </div>
 
-            <div>
+            <div className="input-box">
               <label htmlFor="password">Password</label>
               <Field type="password" id="password" name="password" />
             </div>  
